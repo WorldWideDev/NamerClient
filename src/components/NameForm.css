@@ -1,0 +1,13 @@
+form > * {
+  font-size: calc(10px + 3vmin);
+}
+.form-group {
+    text-align: left;        
+}
+.flex-text-even {
+    display: flex;
+    justify-content: space-evenly;
+}
+.flex-text-even span {
+}
+                             

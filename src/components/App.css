@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+ * {
+     font-family: 'Hermit', monospace;
+ }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
