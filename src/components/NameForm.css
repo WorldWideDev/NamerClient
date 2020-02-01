@@ -1,5 +1,8 @@
+form {
+    width:80%;
+}
 form > * {
-  font-size: calc(10px + 3vmin);
+  font-size: calc(10px + 5vmin);
 }
 .form-group {
     text-align: left;        
@@ -8,6 +11,3 @@ form > * {
     display: flex;
     justify-content: space-evenly;
 }
-.flex-text-even span {
-}
-                             

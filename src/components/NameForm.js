@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import HttpService from '../services/httpService';
 import './NameForm.css'
 
 const INITIAL_MODEL = {
@@ -9,18 +10,28 @@ export default class NameForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            model: {...INITIAL_MODEL}
+            model: {...INITIAL_MODEL},
+            errors: []
         }
     }
     onSubmit(event) {
-        const {model} = this.state;
+        const {model} = {...this.state};
         event.preventDefault();
-        alert("Submiting", {...model});
-        this.setState({model: {...INITIAL_MODEL}});
+        console.log("Submiting", model.name);
+        HttpService.create(model)
+            .then(result => {
+                if(result.errors) {
+                    this.setState({errors: result.errors});
+                } else {
+                    this.setState({model: {...INITIAL_MODEL}, errors: []});
+                    this.props.onSuccess();
+                }
+            })
+            .catch(err => console.log(err, "error in component"));
     }
     updateModel(value, field) {
         let toUpdate = {...this.state.model};
-        toUpdate[field] = value;
+        toUpdate[field] = field==="weight" ? parseFloat(value) : value;
         this.setState({model:toUpdate});
     }
     render() {
