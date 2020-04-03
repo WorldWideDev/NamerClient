@@ -1,0 +1,14 @@
+ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    height: 35vh;
+    overflow-y: scroll;
+}
+li:nth-child(even){
+    background-color: #515151;
+}
+li:nth-child(odd){
+    background-color: #373737;
+}
