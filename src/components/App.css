@@ -7,7 +7,7 @@
   pointer-events: none;
 }
  * {
-     font-family: 'Hermit', monospace;
+     font-family: 'hermit-regular', monospace;
  }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -30,14 +30,19 @@
 .App-section {
     text-align: left;
     flex-grow: 1;
+    height: 90vh;
 }
     .App-section p {
         color: orange;
     }
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
-
+.App-sub-section {
+    display: flex;  
+    flex-direction: column;
+    height: 45vh;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
