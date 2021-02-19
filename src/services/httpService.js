@@ -10,7 +10,10 @@ export default class HttpService {
             .catch(err => console.log('error in HttpService:', err));
     }
     static async get(type="") {
-        const response = await fetch(`${API}/${type}`, {
+        const suffix = (type === "")
+            ? ""
+            : `type/${type}`;
+        const response = await fetch(`${API}/${suffix}`, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             // credentials: 'include', // *include, same-origin, omit
