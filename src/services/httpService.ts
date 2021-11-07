@@ -1,7 +1,9 @@
+import Name from "../models/Name";
+
 const API = 'https://localhost:5001/api/names';
 
 export default class HttpService {
-    static create(model) {
+    static create(model:Name) {
         return HttpService.post(model)
             .then(data => {
                 console.log("response in service:", data);
@@ -10,7 +12,7 @@ export default class HttpService {
             .catch(err => console.log('error in HttpService:', err));
     }
     static async get(type="") {
-        const response = await fetch(`${API}/${type}`, {
+        const response = await fetch(`${API}${type}`, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             // credentials: 'include', // *include, same-origin, omit
@@ -20,7 +22,7 @@ export default class HttpService {
         });
         return await response.json(); // parses JSON response
     }
-    static async post(model) {
+    static async post(model:Name) {
         console.log(model);
         const response = await fetch(API, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
